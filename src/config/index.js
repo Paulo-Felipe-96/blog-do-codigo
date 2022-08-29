@@ -7,10 +7,13 @@ const dev_username = process.env.POSTGRES_DEV_USER;
 const dev_password = process.env.POSTGRES_DEV_PASSWORD;
 const dev_db = process.env.DEV_DB;
 
+const environment = process.env.NODE_ENV || "development";
+
 module.exports = {
   app_port,
   dev_host,
   dev_username,
   dev_password,
   dev_db,
+  environment,
 };
