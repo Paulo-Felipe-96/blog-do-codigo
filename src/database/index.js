@@ -1,5 +1,5 @@
 const sqlite3 = require("sqlite3").verbose();
-const db = new sqlite3.Database("db.sqlite");
+const db = new sqlite3.Database("src/database/data/db.sqlite");
 
 const POSTS_SCHEMA = `
   CREATE TABLE IF NOT EXISTS posts (
