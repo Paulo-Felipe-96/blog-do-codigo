@@ -1,4 +1,4 @@
-const postsDao = require("../posts/posts-dao");
+const postsDao = require("../database/posts/posts-dao");
 const validations = require("../helpers/commonValidations");
 
 class Post {

@@ -1,6 +1,6 @@
-const usuariosDao = require("../users/usuarios-dao");
-const { InvalidArgumentError } = require("../erros");
-const validacoes = require("../validacoes-comuns");
+const usuariosDao = require("../database/users/usuarios-dao");
+const { InvalidArgumentError } = require("../helpers/errors");
+const validacoes = require("../helpers/commonValidations");
 
 class Usuario {
   constructor(usuario) {
