@@ -1,4 +1,4 @@
-const usuariosDao = require("./usuarios-dao");
+const usuariosDao = require("../users/usuarios-dao");
 const { InvalidArgumentError } = require("../erros");
 const validacoes = require("../validacoes-comuns");
 

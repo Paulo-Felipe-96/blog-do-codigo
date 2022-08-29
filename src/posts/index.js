@@ -1,5 +1,9 @@
+const modelPosts = require("../models/posts");
+const routesPosts = require("../routes/postRoutes");
+const controllerPosts = require("../controllers/posts/postsController");
+
 module.exports = {
-  modelo: require("./posts-modelo"),
-  rotas: require("./posts-rotas"),
-  controlador: require("./posts-controlador"),
+  modelPosts,
+  routesPosts,
+  controllerPosts,
 };

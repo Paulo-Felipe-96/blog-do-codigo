@@ -1,4 +1,4 @@
-const Usuario = require("./usuarios-modelo");
+const Usuario = require("../../models/users");
 const { InvalidArgumentError, InternalServerError } = require("../erros");
 
 module.exports = {
