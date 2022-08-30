@@ -1,3 +1,4 @@
+const bcrypt = require("bcrypt");
 const usuariosDao = require("../database/users/usuarios-dao");
 const { InvalidArgumentError } = require("../helpers/errors");
 const validacoes = require("../helpers/commonValidations");
@@ -7,9 +8,7 @@ class Usuario {
     this.id = usuario.id;
     this.nome = usuario.nome;
     this.email = usuario.email;
-    this.senha = usuario.senha;
-
-    this.valida();
+    this.senhaHash = usuario.senhaHash;
   }
 
   async adiciona() {
@@ -20,12 +19,17 @@ class Usuario {
     return usuariosDao.adiciona(this);
   }
 
+  async adicionaSenha(senha) {
+    validacoes.campoStringNaoNulo(senha, "senha");
+    validacoes.campoTamanhoMinimo(senha, "senha", 8);
+    validacoes.campoTamanhoMaximo(senha, "senha", 64);
+
+    this.senhaHash = await Usuario.geraSenhaHash(senha);
+  }
+
   valida() {
     validacoes.campoStringNaoNulo(this.nome, "nome");
     validacoes.campoStringNaoNulo(this.email, "email");
-    validacoes.campoStringNaoNulo(this.senha, "senha");
-    validacoes.campoTamanhoMinimo(this.senha, "senha", 8);
-    validacoes.campoTamanhoMaximo(this.senha, "senha", 64);
   }
 
   async deleta() {
@@ -52,6 +56,11 @@ class Usuario {
 
   static lista() {
     return usuariosDao.lista();
+  }
+
+  static geraSenhaHash(senha) {
+    const custoHash = 12;
+    return bcrypt.hash(senha, custoHash);
   }
 }
 
