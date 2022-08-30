@@ -2,7 +2,7 @@ const postsControlador = require("./posts-controlador");
 
 module.exports = (app) => {
   app
-    .route("/post")
+    .route("/posts")
     .get(postsControlador.lista)
     .post(postsControlador.adiciona);
 };

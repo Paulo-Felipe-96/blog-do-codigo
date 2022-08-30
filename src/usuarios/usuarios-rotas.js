@@ -2,7 +2,7 @@ const usuariosControlador = require("./usuarios-controlador");
 
 module.exports = (app) => {
   app
-    .route("/usuario")
+    .route("/usuarios")
     .post(usuariosControlador.adiciona)
     .get(usuariosControlador.lista);
 
