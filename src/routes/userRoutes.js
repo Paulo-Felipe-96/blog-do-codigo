@@ -7,7 +7,7 @@ const {
 
 router
   .get("/usuarios", lista)
-  .post("/usuario", adiciona)
+  .post("/usuarios", adiciona)
   .delete("/usuario/:id", deleta);
 
 module.exports = router;
