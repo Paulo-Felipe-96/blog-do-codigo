@@ -5,7 +5,7 @@ function startApp() {
   return app.listen(app_port, () =>
     console.log({
       ambiente: environment,
-      mensagem: `Server is running on: http://localhost:${app_port}`,
+      mensagem: `Server is now running at: http://localhost:${app_port}`,
     })
   );
 }

@@ -6,7 +6,7 @@ const {
 } = require("../controllers/users/usersController");
 
 router
-  .get("/home/shazam", lista)
+  .get("/usuarios", lista)
   .post("/usuario", adiciona)
   .delete("/usuario/:id", deleta);
 
