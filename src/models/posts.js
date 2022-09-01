@@ -1,5 +1,9 @@
 const postsDao = require("../database/posts/posts-dao");
-const validations = require("../helpers/commonValidations");
+const {
+  campoStringNaoNulo,
+  campoTamanhoMinimo,
+  campoTamanhoMaximo,
+} = require("../helpers/commonValidations");
 
 class Post {
   constructor(post) {
@@ -13,11 +17,11 @@ class Post {
   }
 
   valida() {
-    validations.campoStringNaoNulo(this.titulo, "título");
-    validations.campoTamanhoMinimo(this.titulo, "título", 5);
+    campoStringNaoNulo(this.titulo, "título");
+    campoTamanhoMinimo(this.titulo, "título", 5);
 
-    validations.campoStringNaoNulo(this.conteudo, "conteúdo");
-    validations.campoTamanhoMaximo(this.conteudo, "conteúdo", 140);
+    campoStringNaoNulo(this.conteudo, "conteúdo");
+    campoTamanhoMaximo(this.conteudo, "conteúdo", 140);
   }
 
   static lista() {
